@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { initializeApp } from "firebase/app";
 import { arrayUnion, doc, getFirestore, updateDoc } from "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
