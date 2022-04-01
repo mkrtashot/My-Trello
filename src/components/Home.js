@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ACTION_TYPES } from "../App";
-import EditWorkspaceName from "./EditWorkspaceName";
-import useUserContext from "../hooks/useUserContext";
-import userPhoto from "../assets/pictures/user.png";
 import { useHeader, usePage } from "../assets/jss/home";
+import useUserContext from "../hooks/useUserContext";
+import EditWorkspaceName from "./EditWorkspaceName";
+import userPhoto from "../assets/pictures/user.png";
 
 export default function Home() {
   const { state, dispatch } = useUserContext();

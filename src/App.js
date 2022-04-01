@@ -8,7 +8,6 @@ import { createContext, useEffect, useReducer } from "react";
 import Register from "./components/Register";
 
 const defaultState = {
-  name: null,
   userName: null,
   workspace: [
     // {
