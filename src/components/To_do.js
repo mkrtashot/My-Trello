@@ -59,6 +59,10 @@ export default function To_do() {
     }
   }
 
+  function cancelButton (){
+    setAddColumnButtonToggled(false)
+  }
+
   function insertNewColumn() {
     return (
       <div className={page.inputCenter}>
@@ -74,7 +78,7 @@ export default function To_do() {
         </button>
         <button
           className={page.button}
-          onClick={() => setAddColumnButtonToggled(false)}
+          onClick={cancelButton}
         >
           Cancel
         </button>

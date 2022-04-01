@@ -8,7 +8,6 @@ export default function EditToDo({
   ind,
   insideTaskIndex,
   insideTask,
-  modalBackground,
   setModalBackground,
 }) {
   const [isMainButtonToggled, setMainButtonToggled] = useState(false);

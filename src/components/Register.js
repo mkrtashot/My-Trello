@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
-import {
-  addDoc,
-  arrayUnion,
-  doc,
-  getFirestore,
-  setDoc,
-  updateDoc,
-} from "firebase/firestore";
+import { arrayUnion, doc, getFirestore, updateDoc } from "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
 import { useBody, useForm } from "../assets/jss/login";
 import { useNavigate } from "react-router-dom";

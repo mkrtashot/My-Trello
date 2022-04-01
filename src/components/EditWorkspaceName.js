@@ -26,6 +26,10 @@ export default function EditWorkspaceName({ item, index }) {
     }
   }
 
+  function editWorkspaceNameButtonFalse() {
+    setEditWorkspaceButtonToggled(false);
+  }
+
   function editWorkspaceName() {
     return (
       <div>
@@ -38,23 +42,21 @@ export default function EditWorkspaceName({ item, index }) {
         <button className={page.button} onClick={editName}>
           Edit
         </button>
-        <button
-          className={page.button}
-          onClick={() => setEditWorkspaceButtonToggled(false)}
-        >
+        <button className={page.button} onClick={editWorkspaceNameButtonFalse}>
           Cancel
         </button>
       </div>
     );
   }
 
+  function editWorkspaceNameButtonTrue() {
+    setEditWorkspaceButtonToggled(true);
+  }
+
   return (
     <>
       {(isEditWorkspaceButtonToggled && editWorkspaceName()) || (
-        <button
-          className={page.button}
-          onClick={() => setEditWorkspaceButtonToggled(true)}
-        >
+        <button className={page.button} onClick={editWorkspaceNameButtonTrue}>
           Edit
         </button>
       )}

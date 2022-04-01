@@ -11,7 +11,6 @@ export default function Modal({
   ind,
   insideTaskIndex,
   insideTask,
-  isMainButtonToggled,
   setMainButtonToggled,
   setModalBackground,
 }) {
@@ -66,20 +65,23 @@ export default function Modal({
     closeModal();
   }
 
+  function editNameButton() {
+    setNameToggled(true);
+  }
+
   function beforeToggleTitle() {
     return (
       <>
         {state.workspace[index].tasks[ind].insideTasks[insideTaskIndex].title}
-        <button
-          className={page.button}
-          onClick={() => {
-            setNameToggled(true);
-          }}
-        >
+        <button className={page.button} onClick={editNameButton}>
           Edit name
         </button>
       </>
     );
+  }
+
+  function cancelTitleButton() {
+    setNameToggled(false);
   }
 
   function afterToggleTitle() {
@@ -94,7 +96,7 @@ export default function Modal({
         <button className={page.button} onClick={editName}>
           Edit
         </button>
-        <button className={page.button} onClick={() => setNameToggled(false)}>
+        <button className={page.button} onClick={cancelTitleButton}>
           Cancel
         </button>
       </>
@@ -116,6 +118,10 @@ export default function Modal({
     );
   }
 
+  function editDescriptionButton() {
+    setDescriptionToggled(true);
+  }
+
   function beforeToggleDescription() {
     return (
       <>
@@ -123,16 +129,15 @@ export default function Modal({
           state.workspace[index].tasks[ind].insideTasks[insideTaskIndex]
             .description
         }
-        <button
-          className={page.button}
-          onClick={() => {
-            setDescriptionToggled(true);
-          }}
-        >
+        <button className={page.button} onClick={editDescriptionButton}>
           Edit description
         </button>
       </>
     );
+  }
+
+  function cancelDescriptionButton() {
+    setDescriptionToggled(false);
   }
 
   function afterToggleDescription() {
@@ -147,10 +152,7 @@ export default function Modal({
         <button className={page.button} onClick={editDescription}>
           Edit
         </button>
-        <button
-          className={page.button}
-          onClick={() => setDescriptionToggled(false)}
-        >
+        <button className={page.button} onClick={cancelDescriptionButton}>
           Cancel
         </button>
       </>
@@ -173,6 +175,10 @@ export default function Modal({
     closeModal();
   }
 
+  function editPriorityButton() {
+    setPriorityToggled(true);
+  }
+
   function beforeTogglePriority() {
     return (
       <>
@@ -180,16 +186,15 @@ export default function Modal({
           state.workspace[index].tasks[ind].insideTasks[insideTaskIndex]
             .priority
         }
-        <button
-          className={page.button}
-          onClick={() => {
-            setPriorityToggled(true);
-          }}
-        >
+        <button className={page.button} onClick={editPriorityButton}>
           Edit priority
         </button>
       </>
     );
+  }
+
+  function cancelPriorityButton() {
+    setPriorityToggled(false);
   }
 
   function afterTogglePriority() {
@@ -209,10 +214,7 @@ export default function Modal({
         <button className={page.button} onClick={editPriority}>
           Edit
         </button>
-        <button
-          className={page.button}
-          onClick={() => setPriorityToggled(false)}
-        >
+        <button className={page.button} onClick={cancelPriorityButton}>
           Cancel
         </button>
       </>
@@ -242,20 +244,23 @@ export default function Modal({
     closeModal();
   }
 
+  function editStatusButton() {
+    setStatusToggled(true);
+  }
+
   function beforeToggleStatus() {
     return (
       <>
         {state.workspace[index].tasks[ind].insideTasks[insideTaskIndex].status}
-        <button
-          className={page.button}
-          onClick={() => {
-            setStatusToggled(true);
-          }}
-        >
+        <button className={page.button} onClick={editStatusButton}>
           Edit status
         </button>
       </>
     );
+  }
+
+  function cancelStatusButton() {
+    setStatusToggled(false);
   }
 
   function afterToggleStatus() {
@@ -286,7 +291,7 @@ export default function Modal({
         <button className={page.button} onClick={editStatus}>
           Edit
         </button>
-        <button className={page.button} onClick={() => setStatusToggled(false)}>
+        <button className={page.button} onClick={cancelStatusButton}>
           Cancel
         </button>
       </>

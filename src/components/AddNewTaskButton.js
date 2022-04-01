@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ACTION_TYPES } from "../App";
 import { usePage } from "../assets/jss/home";
 import { useTasks } from "../assets/jss/todo";
@@ -42,6 +42,10 @@ export default function AddNewTaskButton({ index, ind }) {
       setAddTaskButtonToggled(false);
       setCatchNewTaskName("");
     }
+  }
+
+  function cancelNewTaskButton() {
+    setAddTaskButtonToggled(false);
   }
 
   function insertNewTask() {
@@ -101,24 +105,22 @@ export default function AddNewTaskButton({ index, ind }) {
         <button className={page.button} onClick={addTask}>
           Add Task
         </button>
-        <button
-          className={page.button}
-          onClick={() => setAddTaskButtonToggled(false)}
-        >
+        <button className={page.button} onClick={cancelNewTaskButton}>
           Cancel
         </button>
       </div>
     );
   }
 
+  function addNewTaskButton() {
+    setAddTaskButtonToggled(true);
+  }
+
   return (
     <div className={tasksCss.addTaskContainer}>
       {(isAddTaskButtonToggled && insertNewTask()) || (
         <div className={tasksCss.addTaskButton}>
-          <button
-            className={page.button}
-            onClick={() => setAddTaskButtonToggled(true)}
-          >
+          <button className={page.button} onClick={addNewTaskButton}>
             Add new Task
           </button>
         </div>

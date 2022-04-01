@@ -27,6 +27,10 @@ export default function EditColumn({ index, ind, it }) {
     }
   }
 
+  function cancelEditColumnNameButton() {
+    setButtonToggled(false);
+  }
+
   function editColumnName() {
     return (
       <div>
@@ -39,7 +43,7 @@ export default function EditColumn({ index, ind, it }) {
         <button className={page.button} onClick={editName}>
           Edit
         </button>
-        <button className={page.button} onClick={() => setButtonToggled(false)}>
+        <button className={page.button} onClick={cancelEditColumnNameButton}>
           Cancel
         </button>
       </div>
@@ -49,10 +53,14 @@ export default function EditColumn({ index, ind, it }) {
     dispatch({ type: ACTION_TYPES.DELETE_COLUMN, index: index, ind: ind });
   }
 
+  function editWorkspaceButton() {
+    setButtonToggled(true);
+  }
+
   function beforeTogglePart() {
     return (
       <>
-        <button className={page.button} onClick={() => setButtonToggled(true)}>
+        <button className={page.button} onClick={editWorkspaceButton}>
           Edit
         </button>
         <button className={page.button} onClick={deleteColumn}>

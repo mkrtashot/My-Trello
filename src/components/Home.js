@@ -5,15 +5,6 @@ import EditWorkspaceName from "./EditWorkspaceName";
 import useUserContext from "../hooks/useUserContext";
 import userPhoto from "../assets/pictures/user.png";
 import { useHeader, usePage } from "../assets/jss/home";
-import { initializeApp } from "firebase/app";
-import {
-  arrayUnion,
-  doc,
-  getFirestore,
-  setDoc,
-  updateDoc,
-} from "firebase/firestore";
-import { collection, getDocs } from "firebase/firestore";
 
 export default function Home() {
   const { state, dispatch } = useUserContext();
@@ -76,6 +67,10 @@ export default function Home() {
     }
   }
 
+  function closeNewworkspaceButton() {
+    setButtonToggle(false);
+  }
+
   function newWorkspaceName() {
     return (
       <div className={page.inputCenter}>
@@ -88,11 +83,15 @@ export default function Home() {
         <button className={page.button} onClick={addTask}>
           Add
         </button>
-        <button className={page.button} onClick={() => setButtonToggle(false)}>
+        <button className={page.button} onClick={closeNewworkspaceButton}>
           Close
         </button>
       </div>
     );
+  }
+
+  function addWorkspaceButton() {
+    setButtonToggle(true);
   }
 
   return (
@@ -106,10 +105,7 @@ export default function Home() {
       </div>
       {(isButtonToggled && newWorkspaceName()) || (
         <div className={page.buttonContainer}>
-          <button
-            className={page.buttonCenter}
-            onClick={() => setButtonToggle(true)}
-          >
+          <button className={page.buttonCenter} onClick={addWorkspaceButton}>
             Add Workspace
           </button>
         </div>

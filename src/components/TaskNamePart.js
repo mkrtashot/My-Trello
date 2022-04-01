@@ -4,13 +4,7 @@ import { usePage } from "../assets/jss/home";
 import { useTasks } from "../assets/jss/todo";
 import useUserContext from "../hooks/useUserContext";
 
-export default function TaskNamePart({
-  title,
-  index,
-  ind,
-  insideTaskIndex,
-  insideTask,
-}) {
+export default function TaskNamePart({ title, index, ind, insideTaskIndex }) {
   const [isDone, setDone] = useState("");
   const { state, dispatch } = useUserContext();
 

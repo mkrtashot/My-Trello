@@ -2,8 +2,7 @@ import { ACTION_TYPES } from "../App";
 import { Navigate, useNavigate } from "react-router-dom";
 import useUserContext from "../hooks/useUserContext";
 import { useBody, useForm } from "../assets/jss/login";
-import { useContext, useEffect, useState } from "react";
-import GetUsersData, { LoginState } from "../firebase/getUsersDate";
+import { useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
@@ -42,10 +41,6 @@ export default function Login() {
 
     getData();
   }, []);
-
-  useEffect(() => {
-    console.log(loginState);
-  }, [loginState]);
 
   function login() {
     loginState.login.map((item) => {
