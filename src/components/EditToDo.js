@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { usePage } from "../assets/jss/home";
 import { useTasks } from "../assets/jss/todo";
-import Modal from "./Modal";
+
+const Modal = React.lazy(() => import("./Modal"));
 
 export default function EditToDo({
   index,
@@ -31,15 +32,17 @@ export default function EditToDo({
   return (
     <>
       {(isMainButtonToggled && (
-        <Modal
-          setModalBackground={setModalBackground}
-          isMainButtonToggled={isMainButtonToggled}
-          setMainButtonToggled={setMainButtonToggled}
-          index={index}
-          ind={ind}
-          insideTask={insideTask}
-          insideTaskIndex={insideTaskIndex}
-        />
+        <Suspense fallback={<span>Loading...</span>}>
+          <Modal
+            setModalBackground={setModalBackground}
+            isMainButtonToggled={isMainButtonToggled}
+            setMainButtonToggled={setMainButtonToggled}
+            index={index}
+            ind={ind}
+            insideTask={insideTask}
+            insideTaskIndex={insideTaskIndex}
+          />
+        </Suspense>
       )) || (
         <div className={tasksCss.modalButton}>
           <button className={page.button} onClick={clickHandler}>
