@@ -27,7 +27,7 @@ export default function Home() {
               <div className={page.workspace}>
                 <div className={page.linkContainer}>
                   <Link
-                    to="/to-do"
+                    to={"to-do/" + item.spaceName}
                     key={index}
                     state={{ tasks: item.tasks, index: index }}
                     className={page.link}

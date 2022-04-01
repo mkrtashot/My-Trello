@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { ACTION_TYPES } from "../App";
 import { useHeader, usePage } from "../assets/jss/home";
 import AddNewTaskButton from "./AddNewTaskButton";
@@ -11,6 +11,7 @@ import userPhoto from "../assets/pictures/user.png";
 import { useTasks } from "../assets/jss/todo";
 
 export default function To_do() {
+  const data = useParams();
   const { state, dispatch } = useUserContext();
 
   const [isAddColumnButtonToggled, setAddColumnButtonToggled] = useState(false);
@@ -59,8 +60,8 @@ export default function To_do() {
     }
   }
 
-  function cancelButton (){
-    setAddColumnButtonToggled(false)
+  function cancelButton() {
+    setAddColumnButtonToggled(false);
   }
 
   function insertNewColumn() {
@@ -76,10 +77,7 @@ export default function To_do() {
         <button className={page.button} onClick={addColumn}>
           Add
         </button>
-        <button
-          className={page.button}
-          onClick={cancelButton}
-        >
+        <button className={page.button} onClick={cancelButton}>
           Cancel
         </button>
       </div>

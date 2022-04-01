@@ -24,8 +24,10 @@ export default function AddNewTaskButton({ index, ind }) {
     // 				priority: ["low", "medium", "high"],
     // 			},
 
+    let id = Math.random() * 10000;
+
     const newTask = {
-      id: Math.random(),
+      id: parseInt(id),
       title: catchNewTaskName,
       description: catchDescription,
       status: state.workspace[index].tasks[ind].columnName,

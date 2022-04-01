@@ -10,8 +10,8 @@ import { collection, getDocs } from "firebase/firestore";
 export default function Login() {
   const { state, dispatch } = useUserContext();
   const navigate = useNavigate();
-  let userName = "";
-  let password = "";
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
   const bodyStyle = useBody();
   const formStyle = useForm();
 
@@ -59,10 +59,10 @@ export default function Login() {
   }
 
   function catchUserName(e) {
-    userName = e.target.value;
+    setUserName(e.target.value);
   }
   function catchPassword(e) {
-    password = e.target.value;
+    setPassword(e.target.value);
   }
   function wrong() {
     return (

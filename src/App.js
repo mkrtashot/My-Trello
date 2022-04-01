@@ -331,7 +331,7 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="/" element={<ProtectedRoute user={!!state.userName} />}>
             <Route path="/" element={<Home />} />
-            <Route path="/to-do" element={<To_do />} />
+            <Route path="/to-do/:spaceName" element={<To_do />} />
           </Route>
 
           <Route
